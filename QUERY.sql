@@ -97,3 +97,25 @@ FROM
 WHERE
   tournament_category = 'Champions League'
   AND match_status = 'Available';
+
+
+  -- QUERY 2:
+SELECT
+  user_id,
+  full_name,
+  email
+FROM
+  users
+WHERE
+  full_name LIKE 'Tanvir%'
+  OR full_name LIKE '%Haque%';
+
+
+-- QUERY 3:
+SELECT 
+    booking_id,
+    user_id,
+    match_id,
+    COALESCE(payment_status, 'Action Required') AS systematic_status
+FROM bookings
+WHERE payment_status IS NULL;
